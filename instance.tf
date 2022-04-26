@@ -19,7 +19,7 @@ resource "aws_instance" "lakaydev-web1" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/nginx.sh",
-      "sudo sed -i -e 's/\r$//' /tmp/script.sh", "sudo /tmp/script.sh"
+      "sudo sed -i -e 's/\r$//' /tmp/nginx.sh", "sudo /tmp/script.sh"
     ]
   }
 
@@ -33,7 +33,7 @@ resource "aws_instance" "lakaydev-web1" {
 
 resource "aws_key_pair" "us-region-key-pair" {
   key_name   = "us-region-key-pair"
-  public_key = file(var.PUBLIC_KEY_PATH)
+  public_key = "${file("${var.PUBLIC_KEY_PATH}")}"
 }
 
 output "ip" {
