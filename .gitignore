@@ -5,6 +5,10 @@
 *.tfstate
 *.tfstate.*
 
+#key files
+*us-region-key-pair
+*us-region-key-pair.pub
+
 # Crash log files
 crash.log
 
